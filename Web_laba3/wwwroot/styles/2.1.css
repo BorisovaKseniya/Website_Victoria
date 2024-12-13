@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Шрифт для основного текста */
+    background-color: #f1f8e9; /* светлый зеленый фон */
+    color: #444444;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif; /* Шрифт для заголовков */
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+.highlight {
+    background-color: yellow;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background-image: url(../images/для\ главной\ стр.jpg); /* темно-зеленый фон для хедера */
+    background-size: cover; /* Изображение покроет весь фон */
+    background-position: center; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Отключаем повтор изображения */
+    height: 250px; /* Высота header, настраивайте по своему усмотрению */
+    display: flex; /* Чтобы элементы внутри header выравнивались */
+    justify-content: center; /* Выравнивание по центру по горизонтали */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    padding: 20px 0;
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 240px;
+    margin-left: -345px;
+    margin-top: -180px;
+    border-radius: 10px;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color:  #eef1ea;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    margin-right: -350px;
+    margin-top: -52px ;
+}
+
+.login-form input, .login-form button {
+    padding: 8px;
+    width: 210px;
+    border: none;
+    border-radius: 10px;
+    background-color: #dadfd3;
+}
+
+
+.button-group {
+    display: flex;
+    gap: 10px; /* Расстояние между кнопками */
+    justify-content: space-between; /* Кнопки занимают всю ширину блока */
+}
+
+.login-form input[type="submit"], .register-button {
+    width: 48%; /* Одинаковая ширина для кнопок */
+    background-color: #e4e63d; /* Желтый цвет для кнопки */
+    color: #444444;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover, .register-button:hover {
+    background-color: #FDD835; /* Более темный желтый при наведении */
+}
+
+.register-button {
+    background-color: #84c225; /* Зеленый цвет для кнопки регистрации */
+}
+
+.register-button:hover {
+    background-color: #388E3C; /* Темнее при наведении */
+}
+
+
+
+.navbar {
+    background-color: #84c225; /* основной зеленый цвет навигации */
+    padding: 15px 0;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin: 0 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    background-color: #76ac26; /* светло-зеленый при наведении */
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.sidebar {
+    width: 25%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    color: #4CAF50;
+    font-family: 'Montserrat', sans-serif; /* Шрифт для заголовков */
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #444444;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #4CAF50;
+}
+
+.content {
+    width: 75%;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content h1, .content h2 {
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.price-table th, .price-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.price-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+
+
+.footer {
+    background-color: #2e7d32;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
+    border-radius: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+
+
+.footer p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #c8e6c9;
+}
+
+.main-content .container{
+    display: flex;
+    justify-content: center; /* Центрирует содержимое */
+    align-items: flex-start; /* Содержимое выровнено по верху */
+    margin: 40px auto; /* Отступы сверху/снизу и центрирование */
+    padding: 20px;
+    max-width: 1200px; /* Максимальная ширина контейнера */
+    flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку */
+}
+
+.tour-catalog {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет перенос карточек на следующую строку */
+    gap: 20px; /* Расстояние между карточками */
+    justify-content: center; /* Центрирование карточек по горизонтали */
+}
+
+.tour-card-container {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    flex-wrap: wrap; /* Чтобы карточки переносились на новые строки при необходимости */
+    gap: 20px; /* Пространство между карточками */
+    max-width: 100%; /* Занимаем доступное пространство */
+    padding: 0 5px; /* Добавляем отступы по краям, чтобы карточки не упирались в края экрана */
+    margin: 0 auto; /* Центрируем весь контейнер по горизонтали */
+}
+
+.tour-card {
+    background-color: #fdfffb;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: calc(33.333% - 20px); /* Ширина карточки для 3 колонок */
+    max-width: 300px; /* Ограничение на максимальную ширину карточки */
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.tour-card:hover {
+    transform: translateY(-5px); /* Эффект при наведении */
+}
+
+.tour-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.tour-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+.tour-card p {
+    color: #444;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.more-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #84c225;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.more-button:hover {
+    background-color: #4CAF50;
+}
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px; /* Отступ сверху, чтобы отделить от других элементов */
+}
+
+.search-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f1f8e9; /* Цвет фона, соответствующий общей теме */
+    width: 100%; /* Занимает доступное пространство */
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+.search-form button {
+    padding: 10px;
+    background-color: #84c225; /* Основной зеленый цвет кнопки */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #4CAF50; /* Темно-зеленый при наведении */
+}
+

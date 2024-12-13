@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туроператор Виктория</title>
+    <link href="styles/2.1.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <img src="images/logotip-s.gif" alt="Логотип" class="logo">
+            </div>
+            <div>
+                <h1 style="margin-top: 160px; margin-left: -365px;">Туроператор Виктория</h1>
+            </div>
+            <div id="user-info">
+                <!-- Здесь будет отображаться фамилия и инициалы пользователя -->
+            </div>
+            <form class="login-form" id="login-form" style="margin-left: 510px;">
+                <p><input type="text" id="email" name="email" placeholder="Логин" required></p>
+                <p><input type="password" id="password" name="password" placeholder="Пароль" required></p>
+                <div class="button-group">
+                    <input type="submit" id="login-button" value="Войти">
+                    <button type="button" class="register-button" onclick="location.href='pages/registration.html'">Регистрация</button>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="#">О нас</a></li>
+                <li><a href="pages/tours.html">Наши туры</a></li>
+                <li><a href="pages/payments.html">Способы оплаты</a></li>
+                <li><a href="pages/contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content container">
+        <aside class="sidebar">
+            <h2>Популярные туры</h2>
+            <ul>
+                <li><a href="#">Туры на ноябрьские праздники 2024</a></li>
+                <li><a href="pages/tours.html">Новый год 2025</a></li>
+                <li><a href="pages/prices.html">Рождество и каникулы</a></li>
+                <li><a href="pages/contacts.html">Аренда коттеджей</a></li>
+            </ul>
+
+            <!-- Форма поиска -->
+            <form class="search-form">
+                <input type="text" id="search-input" placeholder="Поиск...">
+                <button type="submit" class="button">Найти</button>
+            </form>
+        </aside>
+
+
+        <section class="content">
+            <h1>Туры и отдых в России</h1>
+            <p>Туроператор "Виктория" с 2006 года популяризует и развивает туризм в России: активные и экскурсионные туры, пляжный отдых в Прибалтике и на Черноморском побережье, лечение в санаториях Подмосковья, Урала и Кавминвод являются основным профилем нашей компании. Мы предлагаем отдых в коттеджах, пансионатах и санаториях в Подмосковье, Карелии, на Селигере и Средней Полосе и других регионах России. У нас на сайте вы сможете подобрать варианты семейного или корпоративного отдыха в коттеджах или здравницах.</p>
+
+            <h2 style="margin-top: 15px;">О турагенстве:</h2>
+            <p>
+                За годы работы мы сформировали огромную, имеющую мало аналогов среди отечественных турфирм, базу частных коттеджей, турбаз, пансионатов, санаториев и отелей Подмосковья, Карелии, Селигера, Ленинградской области, Крыма и Краснодарского Края.
+
+                Мы популяризуем отдых в России: будь то коммерческий туризм, активный, спортивный или «дикий». Мы призываем полюбить природу нашей страны, ее культурное и духовное наследие. Нашим другом и деловым партнером является Востоков Игорь Евгеньевич - президент Туристско-спортивного Союза России.
+
+                C 2011 года мы оформляем шенгеские визы в Италию, Испанию, Грецию, Францию и Германию. Также мы оформляем туристические и бизнес визы в Болгарию, а также визы для владельцев недвижимости.
+            </p>
+
+            <h2 style="margin-top: 15px;">Информация о компании:</h2>
+
+            <p style="margin-bottom: 15px;">Турагентство Виктория включено в Общероссийский Генеральный Реестр Туристических Агентств.</p>
+
+            <p style="margin-bottom: 15px;">    Наш реестровый номер: KH100289 (посмотреть информацию можно по ссылке в Общероссийском генеральном реестре туристических агентств).</p>
+
+            <p style="margin-bottom: 15px;">    Генеральный Директор - Асадчий Игорь Александрович</p>
+
+            <p style="margin-bottom: 15px;">    ИНН 7704592317</p>
+
+            <p style="margin-bottom: 15px;">    ОГРН 1067746409389 </p>
+
+            Дата регистрации: 24 марта 2006 г.</p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>©Все права защищены | Туроператор Виктория</p>
+        </div>
+    </footer>
+
+    <div id="notification"></div>
+
+    <script>
+        document.querySelector('.search-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const searchText = this.querySelector('input').value.toLowerCase();
+            const content = document.querySelector('.content');
+            const paragraphs = content.querySelectorAll('p, h1, h2');
+
+            // Удаляем старые выделения
+            paragraphs.forEach(paragraph => {
+                paragraph.innerHTML = paragraph.innerHTML.replace(/<span class="highlight">(.+?)<\/span>/g, '$1');
+            });
+
+            // Выделяем новые совпадения
+            if (searchText !== '') {
+                paragraphs.forEach(paragraph => {
+                    const text = paragraph.textContent.toLowerCase();
+                    if (text.includes(searchText)) {
+                        const regex = new RegExp(`(${searchText})`, 'gi');
+                        paragraph.innerHTML = paragraph.innerHTML.replace(regex, '<span class="highlight">$1</span>');
+                    }
+                });
+            }
+        });
+    </script>
+
+
+
+
+    <div id="notification"></div>
+
+    <script>
+        function highlightText(event) {
+            event.preventDefault(); // Предотвращаем отправку формы
+            const searchTerm = document.getElementById('search-input').value;
+            const content = document.querySelector('.content'); // Получаем элемент с контентом
+
+            // Сначала убираем предыдущие выделения
+            clearHighlights(content);
+            notification.classList.remove('show'); // Скрываем уведомление
+
+            // Теперь выделяем новый текст
+            if (searchTerm) {
+                const regex = new RegExp(`(${searchTerm})`, 'gi'); // Регулярное выражение для поиска
+                const matches = content.innerHTML.match(regex); // Проверяем, есть ли совпадения
+
+                if (!matches) {
+                    notification.textContent = 'Ничего не найдено'; // Сообщение, если совпадений нет
+                    // Показываем уведомление
+                    notification.classList.add('show'); // Добавляем класс для отображения
+                    notification.style.display = 'block'; // Убедитесь, что уведомление видно
+                    setTimeout(() => {
+                        notification.classList.remove('show'); // Убираем класс, чтобы скрыть
+                        setTimeout(() => notification.style.display = 'none', 500); // Ждем окончания анимации и скрываем
+                    }, 2000); // Скрываем уведомление через 4 секунды
+                }
+
+                // Если совпадения есть, просто выделяем текст
+                content.innerHTML = content.innerHTML.replace(regex, '<span class="highlight">$1</span>');
+            }
+        }
+
+        function clearHighlights(container) {
+            // Удаляем выделение, если оно есть
+            container.innerHTML = container.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+        }
+    </script>
+
+    <script>
+       
+        document.addEventListener("DOMContentLoaded", () => {
+            const userInfoElement = document.getElementById('user-info');
+            const loginForm = document.getElementById('login-form');
+
+            // Получение заголовков с токеном
+            const getHeadersWithToken = () => {
+                const token = localStorage.getItem('jwt');
+            console.log("Получен токен из localStorage:", token); // Логирование токена
+            return token ? {'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } : {'Content-Type': 'application/json' };
+            };
+
+            // Проверка токена и получение информации о пользователе
+            const checkTokenAndFetchUser = async () => {
+                const headers = getHeadersWithToken();
+            console.log("Заголовки для запроса:", headers); // Логирование заголовков
+
+            if (headers.Authorization) {
+                    try {
+                console.log("Отправка запроса для получения информации о пользователе...");
+            const response = await fetch('http://localhost:5209/api/user/user', {headers});
+            if (response.ok) {
+                            const data = await response.json();
+            console.log("Ответ от сервера:", data); // Логирование ответа сервера
+
+            if (data && data.lastName && data.firstName) {
+                userInfoElement.innerHTML = `
+                                    Добро пожаловать, ${data.lastName} ${data.firstName[0]}. <br>
+                                    <div style="text-align: right; margin-top: 10px;">
+                                    <button id="logout-button" class="button1">Выход</button>
+                                </div>
+                                `;
+            loginForm.style.display = 'none';
+                            }
+                        } else {
+                console.error("Ошибка ответа от сервера. Статус:", response.status); // Логирование ошибки
+            localStorage.removeItem('jwt'); // Удаляем токен, если он больше недействителен
+                        }
+                    } catch (error) {
+                console.error("Ошибка запроса:", error); // Логирование ошибки запроса
+            userInfoElement.innerHTML = 'Не удалось загрузить информацию о пользователе.';
+                    }
+                } else {
+                console.log("Токен отсутствует. Пропускаем запрос."); // Логирование отсутствующего токена
+                }
+            };
+
+            // Обработчик входа
+            document.getElementById('login-button').addEventListener('click', async () => {
+                const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!email || !password) {
+                alert("Заполните все поля!");
+            console.log("Не все поля заполнены. Email:", email, "Password:", password); // Логирование пустых полей
+            return;
+                }
+
+            console.log("Попытка входа с email:", email); // Логирование email для попытки входа
+
+            try {
+                    const response = await fetch('http://localhost:5209/api/user/login', {
+                method: 'POST',
+            headers: {'Content-Type': 'application/json' },
+            body: JSON.stringify({email, password})
+                    });
+
+            if (!response.ok) {
+                        const error = await response.json();
+            console.error("Ошибка ответа от сервера при входе:", error); // Логирование ошибки при входе
+            throw new Error(error.message || "Ошибка подключения");
+                    }
+
+            const data = await response.json();
+            console.log("Успешный вход:", data); // Логирование успешного ответа при входе
+            localStorage.setItem('jwt', data.token); // Сохраняем токен в localStorage
+
+            // После успешного входа выполняем повторную проверку
+            checkTokenAndFetchUser();
+                } catch (error) {
+                console.error("Ошибка запроса при входе:", error); // Логирование ошибки запроса при входе
+            alert("Не удалось подключиться к серверу.");
+                }
+            });
+
+            // Обработчик выхода
+            document.addEventListener('click', (event) => {
+                if (event.target && event.target.id === 'logout-button') {
+                console.log("Выход из системы"); // Логирование выхода
+            localStorage.removeItem('jwt'); // Удаляем токен
+            userInfoElement.innerHTML = ''; // Очищаем информацию о пользователе
+            loginForm.style.display = 'block'; // Показываем форму входа
+                }
+            });
+
+            // Выполнение проверки токена при загрузке
+            console.log("Запуск проверки токена и получения информации о пользователе..."); // Логирование начала проверки
+            checkTokenAndFetchUser();
+        });
+    </script>
+
+
+</body>
+</html>

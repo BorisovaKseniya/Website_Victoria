@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="../styles/registration_style.css"> <!-- Путь к файлу стилей -->
+    <style>
+        /* Добавляем стили для центрирования */
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 80px); /* Центрируем по вертикали с учетом высоты хедера */
+        }
+        .header {
+    background-image: url(../images/для\ главной\ стр.jpg); /* темно-зеленый фон для хедера */
+    background-size: cover; /* Изображение покроет весь фон */
+    background-position: center; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Отключаем повтор изображения */
+    height: 250px; /* Высота header, настраивайте по своему усмотрению */
+    display: flex; /* Чтобы элементы внутри header выравнивались */
+    justify-content: center; /* Выравнивание по центру по горизонтали */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    padding: 20px 0;
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 240px;
+    margin-left: -345px;
+    margin-top: -180px;
+    border-radius: 10px;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color:  #eef1ea;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    margin-right: -350px;
+    margin-top: -52px ;
+}
+
+.login-form input, .login-form button {
+    padding: 8px;
+    width: 210px;
+    border: none;
+    border-radius: 10px;
+    background-color: #dadfd3;
+}
+
+
+.button-group {
+    display: flex;
+    gap: 10px; /* Расстояние между кнопками */
+    justify-content: space-between; /* Кнопки занимают всю ширину блока */
+}
+
+.login-form input[type="submit"], .register-button {
+    width: 48%; /* Одинаковая ширина для кнопок */
+    background-color: #e4e63d; /* Желтый цвет для кнопки */
+    color: #444444;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.login-form input[type="submit"]:hover, .register-button:hover {
+    background-color: #FDD835; /* Более темный желтый при наведении */
+}
+
+.register-button {
+    background-color: #84c225; /* Зеленый цвет для кнопки регистрации */
+}
+
+.register-button:hover {
+    background-color: #388E3C; /* Темнее при наведении */
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #eef1ea;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Максимальная ширина формы */
+    margin: auto; /* Центрирование формы */
+    font-family: Arial, sans-serif;
+}
+
+    .feedback-form input[type="text"],
+    .feedback-form input[type="email"],
+    .feedback-form textarea,
+    .feedback-form button {
+        padding: 10px;
+        border: 1px solid #dadfd3;
+        border-radius: 5px;
+        background-color: #f9faf7;
+        width: 100%; /* Полная ширина */
+        box-sizing: border-box; /* Учитываем отступы */
+        font-size: 14px;
+    }
+
+        .feedback-form input[type="text"]:focus,
+        .feedback-form input[type="email"]:focus,
+        .feedback-form textarea:focus {
+            outline: none;
+            border-color: #84c225; /* Зеленая рамка при фокусе */
+            background-color: #ffffff;
+        }
+
+    .feedback-form textarea {
+        resize: none; /* Отключение изменения размера */
+    }
+
+    .feedback-form button {
+        background-color: #84c225;
+        color: white;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .feedback-form button:hover {
+            background-color: #388E3C; /* Более темный зеленый */
+        }
+
+
+
+
+        
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <img src="../images/logotip-s.gif" alt="Логотип" class="logo"> </div>
+            <div>    <h1 style="margin-top: 160px; margin-left: -365px;">Туроператор Виктория</h1>
+            </div>
+            <form method="post" enctype="text/plain" class="login-form" style="margin-left: 510px;">
+                <p><input type="text" id="login" name="login" placeholder="Логин" required></p>
+                <p><input type="password" id="password" name="password" placeholder="Пароль" required></p>
+                <div class="button-group">
+                    <input type="submit" value="Войти">
+                    <button type="button" class="register-button" onclick="location.href='pages/registration.html'">Регистрация</button>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <form class="feedback-form" action="/feedback/submit" method="POST">
+                <h1>Форма обратной связи</h1>
+
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+
+                <label for="theme">Тема:</label>
+                <input type="text" id="theme" name="theme" placeholder="Введите тему сообщения" required>
+
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Введите ваше сообщение" required></textarea>
+
+                <button type="submit">Отправить</button>
+            </form>
+
+                
+            <script src="../Scripts/feedback.js"></script>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>© Все права защищены</p>
+    </footer>
+
+</body>
+</html>
+

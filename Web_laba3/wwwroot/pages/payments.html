@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туроператор Виктория</title>
+    <link href="../styles/2.1.css" rel="stylesheet" type="text/css"> 
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <img src="../images/logotip-s.gif" alt="Логотип" class="logo"> </div>
+            <div>    <h1 style="margin-top: 160px; margin-left: -365px;">Туроператор Виктория</h1>
+            </div>
+            <form method="post" enctype="text/plain" class="login-form" style="margin-left: 510px;">
+                <p><input type="text" id="login" name="login" placeholder="Логин" required></p>
+                <p><input type="password" id="password" name="password" placeholder="Пароль" required></p>
+                <div class="button-group">
+                    <input type="submit" value="Войти">
+                    <button type="button" class="register-button" onclick="location.href='registration.html'">Регистрация</button>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="../index.html">О нас</a></li>
+                <li><a href="tours.html">Наши туры</a></li>
+                <li><a href="#">Способы оплаты</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content container">
+        <aside class="sidebar">
+            <h2>Популярные туры</h2>
+            <ul>
+                <li><a href="#">Туры на ноябрьские праздники 2024</a></li>
+                <li><a href="pages/tours.html">Новый год 2025</a></li>
+                <li><a href="pages/prices.html">Рождество и каникулы</a></li>
+                <li><a href="contacts.html">Аренда коттеджей</a></li>
+            </ul>
+            <form class="search-form">
+                <input type="text"id="search-input" placeholder="Поиск...">
+                <button type="submit" class="button">Найти</button>
+            </form>
+        </aside>
+
+        <section class="content">
+            <h1> Способы оплаты: </h1>
+            <h2>Оплата наличными:</h2>  
+            <p style="margin-bottom: 20px;">Любой тур или отель можно оплатить в нашем офисе около метро «Красные Ворота» в рабочее время до 19:30 (или после рабочего времени - по договоренности с менеджером).</p>
+
+            <h2>Оплата через банк:</h2>  
+
+            <p>Любой тур или отель можно оплатить безналичным путем. Вы можете попросить счет на оплату у менеджера с реквизитами ООО «Виктория» и деталями Вашего тура, включая возможные скидки. Как правило, комиссия банка составляет от 0 до 1 % от суммы оплаты.
+
+                В случае безналичной оплаты на viktour@ya.ru нужно прислать ФИО, номер паспорта и прописку плательщика. На него будет заключен договор и выписал бланки строгой отчетности - чек и путёвка. Оригиналы документов отправляются по почте России, а отсканированные копии - по электронной почте Клиента. Если оригиналы документов не успеют дойти - ничего страшного: ВСЕ наши отели, дома отдыха, санатории и коттеджные комплексы, а также гиды и принимающие стороны в экскурсионных и активных турах по предварительной нашей с ними договоренности принимают наших туристов по копиям документов и оригиналам паспортов.</p>
+            
+            <h2 style="margin-top: 20px;">Оплата дебетовыми карточками:</h2>  
+            <p>Оплату карточкой на данный момент мы можем принять только удаленным способом. Вы можете заключить договор и попросить любого менеджера счет на оплату, который затем оплатить через он-лайн банк, привязанный к вашей карточкой. Как правило, комиссия банка составляет 0-1 % от суммы оплаты.</p>
+            
+            <h2 style="margin-top: 20px;">Оплата на месте:</h2>  
+            <p>Некоторые из частных коттеджей можно оплатить на месте. К сожалению, по понятным причинам собственники не могут держать бронь без предоплаты. Соответственно, вы можете предоплатить понравившийся вам коттедж при предварительном осмотре. Либо же в день заезда, еще раз подтвердив, что вы точно едете, и если коттедж на данный момент еще свободен.</p>
+
+            <h2 style="margin-top: 20px;">Бесплатный курьер</h2>  
+            <p>Вызов курьера в любую точку Москвы в пределах МКАДа БЕСПЛАТЕН для путевок стоимостью более 5000 рублей, в ближайшее Подмосковье – 500 рублей, в дальнее Подмосковье - по договоренности.</p>
+            
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>©Все права защищены | Туроператор Виктория</p>
+        </div>
+    </footer>
+    <div id="notification"></div>
+    <script>
+        document.querySelector('.search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchText = this.querySelector('input').value.toLowerCase();
+            const content = document.querySelector('.content');
+            const paragraphs = content.querySelectorAll('p, h1, h2');
+    
+            // Удаляем старые выделения
+            paragraphs.forEach(paragraph => {
+                paragraph.innerHTML = paragraph.innerHTML.replace(/<span class="highlight">(.+?)<\/span>/g, '$1');
+            });
+    
+            // Выделяем новые совпадения
+            if (searchText !== '') {
+                paragraphs.forEach(paragraph => {
+                    const text = paragraph.textContent.toLowerCase();
+                    if (text.includes(searchText)) {
+                        const regex = new RegExp(`(${searchText})`, 'gi');
+                        paragraph.innerHTML = paragraph.innerHTML.replace(regex, '<span class="highlight">$1</span>');
+                    }
+                });
+            }
+        });
+    </script>
+     <div id="notification"></div>
+
+     <script>
+         function highlightText(event) {
+             event.preventDefault(); // Предотвращаем отправку формы
+             const searchTerm = document.getElementById('search-input').value;
+             const content = document.querySelector('.content'); // Получаем элемент с контентом
+     
+             // Сначала убираем предыдущие выделения
+             clearHighlights(content);
+             notification.classList.remove('show'); // Скрываем уведомление
+     
+             // Теперь выделяем новый текст
+             if (searchTerm) {
+                 const regex = new RegExp(`(${searchTerm})`, 'gi'); // Регулярное выражение для поиска
+                 const matches = content.innerHTML.match(regex); // Проверяем, есть ли совпадения
+     
+                 if (!matches) {
+                     notification.textContent = 'Ничего не найдено'; // Сообщение, если совпадений нет
+                     // Показываем уведомление
+                     notification.classList.add('show'); // Добавляем класс для отображения
+                     notification.style.display = 'block'; // Убедитесь, что уведомление видно
+                     setTimeout(() => {
+                         notification.classList.remove('show'); // Убираем класс, чтобы скрыть
+                         setTimeout(() => notification.style.display = 'none', 500); // Ждем окончания анимации и скрываем
+                     }, 2000); // Скрываем уведомление через 4 секунды
+                 }
+     
+                 // Если совпадения есть, просто выделяем текст
+                 content.innerHTML = content.innerHTML.replace(regex, '<span class="highlight">$1</span>');
+             }
+         }
+     
+         function clearHighlights(container) {
+             // Удаляем выделение, если оно есть
+             container.innerHTML = container.innerHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+         }
+     </script>
+    
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туроператор Виктория</title>
+    <link href="../styles/2.1.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <img src="../images/logotip-s.gif" alt="Логотип" class="logo">
+            </div>
+            <div>
+                <h1 style="margin-top: 160px; margin-left: -365px;">Туроператор Виктория</h1>
+            </div>
+            <form method="post" enctype="text/plain" class="login-form" style="margin-left: 510px;">
+                <p><input type="text" id="login" name="login" placeholder="Логин" required></p>
+                <p><input type="password" id="password" name="password" placeholder="Пароль" required></p>
+                <div class="button-group">
+                    <input type="submit" value="Войти">
+                    <button type="button" class="register-button" onclick="location.href='registration.html'">Регистрация</button>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+
+            <ul>
+                <li><a href="../index.html">О нас</a></li>
+                <li><a href="#">Наши туры</a></li>
+                <li><a href="./payments.html">Способы оплаты</a></li>
+                <li><a href="./contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content container">
+        <aside class="sidebar">
+            <h2>Популярные туры</h2>
+            <ul>
+                <li><a href="#">Туры на ноябрьские праздники 2024</a></li>
+                <li><a href="pages/tours.html">Новый год 2025</a></li>
+                <li><a href="pages/prices.html">Рождество и каникулы</a></li>
+                <li><a href="pages/contacts.html">Аренда коттеджей</a></li>
+            </ul>
+
+            <!-- Форма поиска -->
+            <form class="search-form">
+                <input type="text" id="search-input" placeholder="Поиск...">
+                <button type="submit" class="button">Найти</button>
+            </form>
+        </aside>
+
+        <section class="content">
+            <h1>Каталог туров</h1>
+            <div class="sort-container" style="margin-bottom: 20px; display: flex; gap: 20px;">
+                <div>
+                    <label for="sort-options-1">Сортировать по:</label>
+                    <select id="sort-options-1">
+                        <option value="alphabetical">По алфавиту</option>
+                        <option value="price-asc">По возрастанию стоимости</option>
+                        <option value="price-desc">По убыванию стоимости</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="sort-options-2">Категория тура:</label>
+                    <select id="sort-options-2">
+                        <option value="all">Все туры</option>
+                        <option value="rocky">Горный тур</option>
+                        <option value="beach">Пляжный отдых</option>
+                        <option value="historical">Историческая экскурсия</option>
+                    </select>
+                </div>
+            </div>
+            <div class="loading-indicator">Загрузка туров...</div>
+            <div class="tour-card-container">
+
+                <!-- пусто?-->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>©Все права защищены | Туроператор Виктория</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.search-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const searchText = this.querySelector('input').value.toLowerCase();
+            const content = document.querySelector('.content');
+            const paragraphs = content.querySelectorAll('p, h1, h2');
+
+            // Удаляем старые выделения
+            paragraphs.forEach(paragraph => {
+                paragraph.innerHTML = paragraph.innerHTML.replace(/<span class="highlight">(.+?)<\/span>/g, '$1');
+            });
+
+            // Выделяем новые совпадения
+            if (searchText !== '') {
+                paragraphs.forEach(paragraph => {
+                    const text = paragraph.textContent.toLowerCase();
+                    if (text.includes(searchText)) {
+                        const regex = new RegExp(`(${searchText})`, 'gi');
+                        paragraph.innerHTML = paragraph.innerHTML.replace(regex, '<span class="highlight">$1</span>');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script>
+        // URL API для получения списка туров
+        const apiUrl = 'http://localhost:5209/api/Tour'; // Замените на фактический URL API
+        document.addEventListener('DOMContentLoaded', loadTours);
+        // Функция для загрузки туров и отображения их на странице
+        async function loadTours() {
+            const loadingIndicator = document.querySelector('.loading-indicator');
+            const container = document.querySelector('.tour-card-container');
+
+            loadingIndicator.style.display = 'block';
+
+            try {
+                const response = await fetch(apiUrl);
+                const tours = await response.json();
+                container.innerHTML = '';
+                tours.forEach(tour => {
+                    const tourCard = `
+                            <div class="tour-card" data-category="${tour.tourCategory}" data-price="${tour.price}">
+                                <img src="${tour.picture}" alt="${tour.tourName}" class="tour-image">
+                                <h3>${tour.tourName}</h3>
+                                <p>${tour.shortDescription}</p>
+                                <p style="margin-top: 80px;">Цена: от ${tour.price}</p>
+                                <a href="${tour.linkToFullDiscription}" class="more-button">Подробнее</a>
+                            </div>
+                        `;
+                    container.innerHTML += tourCard;
+                });
+
+                // Оповещение о завершении загрузки
+                document.dispatchEvent(new Event("toursLoaded"));
+            } catch (error) {
+                console.error('Ошибка при загрузке туров:', error);
+                container.innerHTML = '<p>Ошибка при загрузке данных. Пожалуйста, попробуйте позже.</p>';
+            } finally {
+                loadingIndicator.style.display = 'none';
+            }
+        }
+    </script>
+
+    <script src="../scrypts/sortTours.js" defer></script>
+
+</body>
+</html>

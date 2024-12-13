@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туроператор Виктория</title>
+    <link href="../styles/2.1.css" rel="stylesheet" type="text/css"> 
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <img src="../images/logotip-s.gif" alt="Логотип" class="logo"> </div>
+            <div>    <h1 style="margin-top: 160px; margin-left: -365px;">Туроператор Виктория</h1>
+            </div>
+            <form method="post" enctype="text/plain" class="login-form" style="margin-left: 510px;">
+                <p><input type="text" id="login" name="login" placeholder="Логин" required></p>
+                <p><input type="password" id="password" name="password" placeholder="Пароль" required></p>
+                <div class="button-group">
+                    <input type="submit" value="Войти">
+                    <button type="button" class="register-button" onclick="location.href='pages/registration.html'">Регистрация</button>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="../index.html">О нас</a></li>
+                <li><a href="tours.html">Наши туры</a></li>
+                <li><a href="payments.html">Способы оплаты</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content container">
+        <aside class="sidebar">
+            <h2>Популярные туры</h2>
+            <ul>
+                <li><a href="#">Туры на ноябрьские праздники 2024</a></li>
+                <li><a href="pages/tours.html">Новый год 2025</a></li>
+                <li><a href="pages/prices.html">Рождество и каникулы</a></li>
+                <li><a href="pages/contacts.html">Аренда коттеджей</a></li>
+            </ul>
+            <form class="search-form">
+                <input type="text"id="search-input" placeholder="Поиск...">
+                <button type="submit" class="button">Найти</button>
+            </form>
+        </aside>
+
+        <section class="content">
+            <h1> Контакты: </h1>
+                    <h2>Адрес офиса:</h2> 
+                     
+                    <p ><strong>Москва, метро "Красные ворота" (выход к Каланчевской улице), Новая Басманная улица, 10, строение 1, офис 95</strong></p>
+                    <p>Телефон: 8(495) 363 3512</p>
+                    <p>E-mail: viktour@yandex.ru</p>
+                    <h3>Как к нам добраться:</h3>
+                    <p>Из центра Москвы двигаетесь по красной ветке метро до станции "Красные Ворота". Выход из первого вагона из центра на Лермонтовский парк.
+
+                        Переходите через дорогу на светофоре, и идете прямо, проходите сквер. Переходите дорогу по пешеходному переходу и поворачиваете налево, через сто метров перед вами будет небольшой железнодорожный мост.
+                        
+                        Сразу после моста поворачиваете направо и проходите 50 метров вдоль здания до подъезда №6. Заходите внутрь, поднимаетесь на 6 этаж в офис 95.</p>
+
+                
+
+                    <h3 >Режим работы:</h3>
+                        
+                        <p>Пн-Пт: 10:00 - 19:00</p>
+                        <p style="margin-bottom: 50px;">Сб-Вс:  14:00 - 18:00</p>
+
+                    <nav class="navbar">
+                        <div class="container">
+                            <ul>
+                                <li><a href="feedback.html">Форма обратной связи</a></li>
+                                
+                            </ul>
+                        </div>
+                    </nav>
+                   
+                    
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>©Все права защищены | Туроператор Виктория</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchText = this.querySelector('input').value.toLowerCase();
+            const content = document.querySelector('.content');
+            const paragraphs = content.querySelectorAll('p, h1, h2');
+    
+            // Удаляем старые выделения
+            paragraphs.forEach(paragraph => {
+                paragraph.innerHTML = paragraph.innerHTML.replace(/<span class="highlight">(.+?)<\/span>/g, '$1');
+            });
+    
+            // Выделяем новые совпадения
+            if (searchText !== '') {
+                paragraphs.forEach(paragraph => {
+                    const text = paragraph.textContent.toLowerCase();
+                    if (text.includes(searchText)) {
+                        const regex = new RegExp(`(${searchText})`, 'gi');
+                        paragraph.innerHTML = paragraph.innerHTML.replace(regex, '<span class="highlight">$1</span>');
+                    }
+                });
+            }
+        });
+    </script>
+    
+
+</body>
+</html>

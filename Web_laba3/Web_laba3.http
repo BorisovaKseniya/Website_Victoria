@@ -1,0 +1,6 @@
+@Web_laba3_HostAddress = http://localhost:5209
+
+GET {{Web_laba3_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

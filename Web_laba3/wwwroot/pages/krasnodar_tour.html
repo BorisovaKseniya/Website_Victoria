@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туроператор Виктория</title>
+    <link href="../styles/2.1.css" rel="stylesheet" type="text/css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <img src="../images/logotip-s.gif" alt="Логотип" class="logo"> </div>
+            <div>    <h1 style="margin-top: 160px; margin-left: -365px;">Туроператор Виктория</h1>
+            </div>
+            <form method="post" enctype="text/plain" class="login-form" style="margin-left: 510px;">
+                <p><input type="text" id="login" name="login" placeholder="Логин" required></p>
+                <p><input type="password" id="password" name="password" placeholder="Пароль" required></p>
+                <div class="button-group">
+                    <input type="submit" value="Войти">
+                    <button type="button" class="register-button" onclick="location.href='registration.html'">Регистрация</button>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="container">
+             
+            <ul>
+                <li><a href="../index.html">О нас</a></li>
+                <li><a href="tours.html">Наши туры</a></li>
+                <li><a href="payments.html">Способы оплаты</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="main-content container">
+        <aside class="sidebar">
+            <h2>Популярные туры</h2>
+            <ul>
+                <li><a href="#">Туры на ноябрьские праздники 2024</a></li>
+                <li><a href="pages/tours.html">Новый год 2025</a></li>
+                <li><a href="pages/prices.html">Рождество и каникулы</a></li>
+                <li><a href="contacts.html">Аренда коттеджей</a></li>
+            </ul>
+            <form class="search-form">
+                <input type="text"id="search-input" placeholder="Поиск...">
+                <button type="submit" class="button">Найти</button>
+            </form>
+        </aside>
+
+        <section class="content">
+            <h1> Отдых в Сочи </h1>
+          
+            <p style="margin-bottom: 20px;">Курортный регион Большое Сочи протянулся вдоль побережья Черного моря более чем на 100 км до самой Абхазии и включает в себя следующие курорты: Адлер, Кудепста, Хоста, сам город Сочи, Дагомыс, Лоо, Вардане, Лазаревское и несколько других - мелких курортных местечек.</p>
+
+            <h2>Общие сведения:</h2>  
+
+            <p>145 километров великолепного черноморского песчаного пляжа. Площадь курорта - 3,5 тысячи кв. км, треть которой занята живописными лесами. Предгорный курорт Сочи находится в зоне влажных субтропиков.
+
+                Мягкий климат, ласковое море, различные минеральные источники и исторические памятники всегда привлекали россиян. Температура воздуха с мая по октябрь + 22-28°С, морской воды + 22-26°С. Зима тёплая, со средней температурой в январе + 6°С.</p>
+               
+            <h2 style="margin-top: 20px;">Плюсы отдыха в Сочи:</h2>  
+            <p>Отдыхать в Сочи можно круглый год, многие санатории и пансионаты приспособлены для зимнего и межсезонного отдыха. Постоянно зелёные парки города, бульвары и скверы, море создают неповторимый микроклимат, который позволяет восстановить здоровье и поправить самочувствие даже при непродолжительном пребывании на курорте.
+
+                По праву Сочи считается одним из самых лучших курортов в мире, ведь именно в этом уголке земли можно сочетать прекрасный отдых на пляже, с разнообразными экскурсионными прогулками. В этом прекрасном городе, вы побываете на многих экскурсиях и насладитесь многими достопримечательностями, искупаетесь в море и понежитесь на солнышке, поужинайте в лучших ресторанах, посетите ночные клубы, и Вам захочется посетить центры культуры и искусства. Здесь вы найдёте концертные залы и музеи, театры и библиотеки, множество выставочных залов и галерей, в которых часто проводят выставки, экспонаты которых собраны со всего мира</p>
+            <h2 style="margin-top: 20px;">Достопримечательности:</h2>  
+            <p>Конечно же, имя в Сочи известно всему миру прежде всего Олимпиаде 2014 года, на которую вся Россия после Турина и в особенности Ванкувера взирает с надеждой. Надеемся, что Сочи станет не только символом лучшего в России курортного отдыха (ещё с советских времён), но и места, где Олимпийская Сборная России добьётся такой же оглушительной победы, как и на Универсиаде 2014 в Казани. Сегодня в Сочинском регионе известно более 50 источников минеральных вод бальнеологического и питьевого профиля. Для питьевого лечения и розлива используются воды Пластунского, Мамайского, Волконского, Чвижепсинского месторождений. Также курорт обладает большими запасами лечебных грязей.</p>
+            
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>©Все права защищены | Туроператор Виктория</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.search-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchText = this.querySelector('input').value.toLowerCase();
+            const content = document.querySelector('.content');
+            const paragraphs = content.querySelectorAll('p, h1, h2');
+    
+            // Удаляем старые выделения
+            paragraphs.forEach(paragraph => {
+                paragraph.innerHTML = paragraph.innerHTML.replace(/<span class="highlight">(.+?)<\/span>/g, '$1');
+            });
+    
+            // Выделяем новые совпадения
+            if (searchText !== '') {
+                paragraphs.forEach(paragraph => {
+                    const text = paragraph.textContent.toLowerCase();
+                    if (text.includes(searchText)) {
+                        const regex = new RegExp(`(${searchText})`, 'gi');
+                        paragraph.innerHTML = paragraph.innerHTML.replace(regex, '<span class="highlight">$1</span>');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
